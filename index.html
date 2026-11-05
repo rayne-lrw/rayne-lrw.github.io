@@ -4,21 +4,121 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>我的小工具</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧰</text></svg>">
 <style>
-  body { font-family: system-ui, "Microsoft JhengHei", sans-serif; max-width: 800px; margin: 0 auto; padding: 32px 16px; background: #f6f7f9; color: #222; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
-  a { display: block; padding: 20px 16px; background: #fff; border: 1px solid #ddd; border-radius: 10px; text-decoration: none; color: inherit; font-weight: 600; }
-  a:hover { border-color: #2f6feb; color: #2f6feb; }
+  :root {
+    --bg: #f4f6fb;
+    --bg-glow: rgba(47, 111, 235, .10);
+    --card: #ffffff;
+    --border: #e3e7ef;
+    --text: #1d2330;
+    --muted: #677085;
+    --shadow: 0 1px 2px rgba(20, 30, 60, .04), 0 4px 16px rgba(20, 30, 60, .06);
+    --shadow-hover: 0 2px 4px rgba(20, 30, 60, .06), 0 12px 32px rgba(20, 30, 60, .12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #10131a;
+      --bg-glow: rgba(90, 140, 255, .12);
+      --card: #191d27;
+      --border: #2a303d;
+      --text: #e8ebf2;
+      --muted: #949cb0;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .3);
+      --shadow-hover: 0 12px 32px rgba(0, 0, 0, .45);
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: system-ui, -apple-system, "Segoe UI", "Microsoft JhengHei", "PingFang TC", sans-serif;
+    color: var(--text);
+    background:
+      radial-gradient(900px 400px at 50% -120px, var(--bg-glow), transparent 70%),
+      var(--bg);
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 56px 16px 40px; }
+  header { text-align: center; margin-bottom: 36px; }
+  .logo {
+    display: inline-grid; place-items: center;
+    width: 64px; height: 64px; border-radius: 18px;
+    font-size: 34px; margin-bottom: 14px;
+    background: linear-gradient(135deg, #4f8cff, #8b5cf6);
+    box-shadow: 0 8px 24px rgba(79, 140, 255, .35);
+  }
+  h1 { margin: 0; font-size: 30px; letter-spacing: .02em; }
+  .sub { margin: 8px 0 0; color: var(--muted); }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+  .card {
+    --accent: #2f6feb;
+    position: relative; overflow: hidden;
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 20px 18px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    text-decoration: none; color: inherit;
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+  .card::before {
+    content: ""; position: absolute; inset: 0 0 auto 0; height: 3px;
+    background: var(--accent); opacity: .85;
+  }
+  .card:hover, .card:focus-visible {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--accent);
+    outline: none;
+  }
+  .icon {
+    flex: none; display: grid; place-items: center;
+    width: 44px; height: 44px; border-radius: 12px; font-size: 22px;
+    background: color-mix(in srgb, var(--accent) 14%, transparent);
+  }
+  .name { font-weight: 650; font-size: 16px; }
+  .desc { margin-top: 4px; font-size: 13.5px; line-height: 1.5; color: var(--muted); }
+  .card:hover .name { color: var(--accent); }
+
+  footer { margin-top: 40px; text-align: center; font-size: 13px; color: var(--muted); }
+
+  @media (prefers-reduced-motion: reduce) { .card { transition: none; } .card:hover { transform: none; } }
 </style>
 </head>
 <body>
-<h1>我的小工具</h1>
-<div class="grid">
-  <a href="/Circuit/">盤面配線模擬器</a>
-  <a href="/pdf/">PDF 合併工具</a>
-  <a href="/RS485/">Modbus RTU 測試台</a>
-  <a href="/image-change/">圖片縮放工具</a>
-  <a href="/fit-dash/">車況面板</a>
+<div class="wrap">
+  <header>
+    <div class="logo">🧰</div>
+    <h1>我的小工具</h1>
+    <p class="sub">打開瀏覽器就能用的實用工具</p>
+  </header>
+
+  <main class="grid">
+    <a class="card" href="/Circuit/" style="--accent:#f59e0b">
+      <span class="icon">⚡</span>
+      <span><div class="name">盤面配線模擬器</div><div class="desc">模擬配電盤配線與迴路</div></span>
+    </a>
+    <a class="card" href="/pdf/" style="--accent:#ef4444">
+      <span class="icon">📄</span>
+      <span><div class="name">PDF 合併工具</div><div class="desc">把多個 PDF 合併成一份</div></span>
+    </a>
+    <a class="card" href="/RS485/" style="--accent:#10b981">
+      <span class="icon">🔌</span>
+      <span><div class="name">Modbus RTU 測試台</div><div class="desc">RS485 / Modbus RTU 通訊測試</div></span>
+    </a>
+    <a class="card" href="/image-change/" style="--accent:#8b5cf6">
+      <span class="icon">🖼️</span>
+      <span><div class="name">圖片縮放工具</div><div class="desc">調整圖片尺寸與大小</div></span>
+    </a>
+    <a class="card" href="/fit-dash/" style="--accent:#0ea5e9">
+      <span class="icon">🚗</span>
+      <span><div class="name">車況面板</div><div class="desc">即時查看車輛狀態資訊</div></span>
+    </a>
+  </main>
+
+  <footer>© rayne-lrw</footer>
 </div>
 </body>
 </html>
