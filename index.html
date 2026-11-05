@@ -50,6 +50,18 @@
   h1 { margin: 0; font-size: 30px; letter-spacing: .02em; }
   .sub { margin: 8px 0 0; color: var(--muted); }
 
+  .cat + .cat { margin-top: 32px; }
+  .cat h2 {
+    display: flex; align-items: center; gap: 10px;
+    margin: 0 0 14px; font-size: 15px; font-weight: 650;
+    color: var(--muted); letter-spacing: .08em;
+  }
+  .cat h2::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+  .count {
+    font-size: 12px; font-weight: 600; letter-spacing: 0;
+    padding: 1px 8px; border-radius: 999px;
+    background: var(--card); border: 1px solid var(--border);
+  }
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
   .card {
     --accent: #2f6feb;
@@ -95,27 +107,42 @@
     <p class="sub">打開瀏覽器就能用的實用工具</p>
   </header>
 
-  <main class="grid">
-    <a class="card" href="/Circuit/" style="--accent:#f59e0b">
-      <span class="icon">⚡</span>
-      <span><div class="name">盤面配線模擬器</div><div class="desc">模擬配電盤配線與迴路</div></span>
-    </a>
-    <a class="card" href="/pdf/" style="--accent:#ef4444">
-      <span class="icon">📄</span>
-      <span><div class="name">PDF 合併工具</div><div class="desc">把多個 PDF 合併成一份</div></span>
-    </a>
-    <a class="card" href="/RS485/" style="--accent:#10b981">
-      <span class="icon">🔌</span>
-      <span><div class="name">Modbus RTU 測試台</div><div class="desc">RS485 / Modbus RTU 通訊測試</div></span>
-    </a>
-    <a class="card" href="/image-change/" style="--accent:#8b5cf6">
-      <span class="icon">🖼️</span>
-      <span><div class="name">圖片縮放工具</div><div class="desc">調整圖片尺寸與大小</div></span>
-    </a>
-    <a class="card" href="/fit-dash/" style="--accent:#0ea5e9">
-      <span class="icon">🚗</span>
-      <span><div class="name">車況面板</div><div class="desc">即時查看車輛狀態資訊</div></span>
-    </a>
+  <main>
+    <section class="cat">
+      <h2>工程類<span class="count">2</span></h2>
+      <div class="grid">
+        <a class="card" href="/Circuit/" style="--accent:#f59e0b">
+          <span class="icon">⚡</span>
+          <span><div class="name">盤面配線模擬器</div><div class="desc">模擬配電盤配線與迴路</div></span>
+        </a>
+        <a class="card" href="/RS485/" style="--accent:#10b981">
+          <span class="icon">🔌</span>
+          <span><div class="name">Modbus RTU 測試台</div><div class="desc">RS485 / Modbus RTU 通訊測試</div></span>
+        </a>
+      </div>
+    </section>
+    <section class="cat">
+      <h2>生活類<span class="count">1</span></h2>
+      <div class="grid">
+        <a class="card" href="/fit-dash/" style="--accent:#0ea5e9">
+          <span class="icon">🚗</span>
+          <span><div class="name">車況面板</div><div class="desc">即時查看車輛狀態資訊</div></span>
+        </a>
+      </div>
+    </section>
+    <section class="cat">
+      <h2>文書類<span class="count">2</span></h2>
+      <div class="grid">
+        <a class="card" href="/pdf/" style="--accent:#ef4444">
+          <span class="icon">📄</span>
+          <span><div class="name">PDF 合併工具</div><div class="desc">把多個 PDF 合併成一份</div></span>
+        </a>
+        <a class="card" href="/image-change/" style="--accent:#8b5cf6">
+          <span class="icon">🖼️</span>
+          <span><div class="name">圖片縮放工具</div><div class="desc">調整圖片尺寸與大小</div></span>
+        </a>
+      </div>
+    </section>
   </main>
 
   <footer>© rayne-lrw</footer>
