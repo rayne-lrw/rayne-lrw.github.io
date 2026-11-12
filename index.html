@@ -38,17 +38,16 @@
       radial-gradient(900px 400px at 50% -120px, var(--bg-glow), transparent 70%),
       var(--bg);
   }
-  .wrap { max-width: 880px; margin: 0 auto; padding: 56px 16px 40px; }
-  header { text-align: center; margin-bottom: 36px; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 32px 16px 40px; }
+  header { display: flex; align-items: center; gap: 12px; margin-bottom: 36px; }
   .logo {
-    display: inline-grid; place-items: center;
-    width: 64px; height: 64px; border-radius: 18px;
-    font-size: 34px; margin-bottom: 14px;
+    flex: none; display: grid; place-items: center;
+    width: 40px; height: 40px; border-radius: 11px;
     background: linear-gradient(135deg, #4f8cff, #8b5cf6);
-    box-shadow: 0 8px 24px rgba(79, 140, 255, .35);
+    box-shadow: 0 4px 12px rgba(79, 140, 255, .3);
   }
-  h1 { margin: 0; font-size: 30px; letter-spacing: .02em; }
-  .sub { margin: 8px 0 0; color: var(--muted); }
+  h1 { margin: 0; font-size: 22px; line-height: 1.2; letter-spacing: .02em; }
+  .sub { margin: 2px 0 0; font-size: 13.5px; color: var(--muted); }
 
   .cat + .cat { margin-top: 32px; }
   .cat h2 {
@@ -102,9 +101,11 @@
 <body>
 <div class="wrap">
   <header>
-    <div class="logo"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7"/><rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M3 12.5h18"/><rect x="10" y="11" width="4" height="3" rx="1"/></svg></div>
-    <h1>Rayen的工具箱</h1>
-    <p class="sub">打開瀏覽器就能用的實用工具</p>
+    <div class="logo"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7"/><rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M3 12.5h18"/><rect x="10" y="11" width="4" height="3" rx="1"/></svg></div>
+    <div>
+      <h1>Rayen的工具箱</h1>
+      <p class="sub">打開瀏覽器就能用的實用工具</p>
+    </div>
   </header>
 
   <main>
